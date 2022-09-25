@@ -23,9 +23,6 @@ with autocast("cuda"):
 end = time.time()
 print(end - start)
 
-from torch import autocast
-import time
-
 start = time.time()
 prompt = "a photograph of an astronaut riding a horse"
 with autocast("cuda"):
