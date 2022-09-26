@@ -36,6 +36,7 @@ from tensorflow.keras import mixed_precision
 import time
 ```
 
+
 ## Introduction
 
 Unlike most tutorials, where we first explain a topic then show how to implement it,
@@ -48,6 +49,7 @@ First, we construct a model:
 ```python
 stable_diffusion = keras_cv.models.StableDiffusion(img_width=512, img_height=512)
 ```
+
 
 Next, we give it a prompt:
 
@@ -67,12 +69,6 @@ visualization.plot_gallery(
 )
 ```
 
-<div class="k-default-codeblock">
-```
-25/25 [==============================] - 19s 316ms/step
-
-```
-</div>
     
 ![png](/out/out_6_1.png)
     
@@ -104,12 +100,6 @@ visualize_prompt(
 )
 ```
 
-<div class="k-default-codeblock">
-```
-25/25 [==============================] - 8s 315ms/step
-
-```
-</div>
     
 ![png](/out/out_8_1.png)
     
@@ -170,23 +160,13 @@ benchmark_result.append(["Standard", end - start])
 print(f"Standard model took {end - start} seconds")
 ```
 
-<div class="k-default-codeblock">
-```
-25/25 [==============================] - 8s 315ms/step
 
-```
-</div>
-    
 ![png](/out/out_12_1.png)
+
     
-
-
-<div class="k-default-codeblock">
 ```
 Standard model took 8.530142068862915 seconds
-
 ```
-</div>
 ### Mixed Precision
 
 Mixed precision computation is the process of performing computation using `float16`
@@ -202,13 +182,12 @@ While a low-level setting, enabling mixed precision computation in Keras
 mixed_precision.set_global_policy("mixed_float16")
 ```
 
-<div class="k-default-codeblock">
 ```
 INFO:tensorflow:Mixed precision compatibility check (mixed_float16): OK
 Your GPU will likely run quickly with dtype policy mixed_float16 as it has compute capability of at least 7.0. Your GPU: NVIDIA A100-SXM4-40GB, compute capability 8.0
 
 ```
-</div>
+
 That's all.  Out of the box - it just works.
 
 
@@ -223,13 +202,11 @@ print(
 )
 ```
 
-<div class="k-default-codeblock">
 ```
 Compute dtype: float16
 Variable dtype: float32
-
 ```
-</div>
+
 As you can see, the model constructed above now uses mixed precision computation;
 leveraging the speed of `float16` for computation, and `float32` to store variables.
 
@@ -250,24 +227,20 @@ benchmark_result.append(["Mixed Precision", end - start])
 print(f"Mixed precision model took {end - start} seconds")
 ```
 
-<div class="k-default-codeblock">
 ```
 25/25 [==============================] - 15s 227ms/step
 25/25 [==============================] - 6s 227ms/step
-
 ```
-</div>
+
     
 ![png](/out/out_18_1.png)
     
 
 
-<div class="k-default-codeblock">
 ```
 Mixed precision model took 6.396734237670898 seconds
-
 ```
-</div>
+
 ### XLA Compilation
 
 TensorFlow comes with the
@@ -292,12 +265,10 @@ visualize_prompt(
 )
 ```
 
-<div class="k-default-codeblock">
 ```
 25/25 [==============================] - 36s 246ms/step
-
 ```
-</div>
+
     
 ![png](/out/out_20_1.png)
     
@@ -317,23 +288,17 @@ benchmark_result.append(["XLA", end - start])
 print(f"With XLA took {end - start} seconds")
 ```
 
-<div class="k-default-codeblock">
 ```
 25/25 [==============================] - 6s 245ms/step
-
 ```
-</div>
     
 ![png](/out/out_22_1.png)
     
 
 
-<div class="k-default-codeblock">
 ```
 With XLA took 6.652431011199951 seconds
-
 ```
-</div>
 On my hardware I see about a 2x speedup.  Fantastic!
 ## Putting It All Together
 
@@ -356,244 +321,10 @@ and to use it...
 stable_diffusion.text_to_image("warming up the model", batch_size=3)
 ```
 
-<div class="k-default-codeblock">
 ```
 25/25 [==============================] - 39s 156ms/step
+```
 
-array([[[[ 97,  74,  50],
-         [101,  77,  52],
-         [ 99,  71,  48],
-         ...,
-         [126, 110,  94],
-         [126, 110,  96],
-         [129, 114, 100]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[103,  76,  52],
-         [101,  75,  51],
-         [102,  74,  53],
-         ...,
-         [127, 110,  96],
-         [127, 111,  97],
-         [126, 110,  95]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[102,  75,  51],
-         [105,  77,  55],
-         [106,  78,  55],
-         ...,
-         [127, 111,  97],
-         [126, 110,  96],
-         [126, 110,  96]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        ...,
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[150, 113,  97],
-         [150, 114,  99],
-         [150, 113,  98],
-         ...,
-         [110,  70,  42],
-         [107,  67,  40],
-         [101,  62,  39]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[150, 113,  98],
-         [150, 113,  98],
-         [150, 111,  96],
-         ...,
-         [118,  66,  37],
-         [119,  76,  39],
-         [118,  72,  37]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[145, 110, 100],
-         [150, 112,  98],
-         [151, 112,  97],
-         ...,
-         [118,  72,  40],
-         [118,  73,  39],
-         [119,  79,  39]]],
-```
-</div>
-    
-    
-<div class="k-default-codeblock">
-```
-       [[[120, 109,  99],
-         [120, 109,  99],
-         [120, 107,  99],
-         ...,
-         [135, 128, 118],
-         [137, 131, 123],
-         [137, 131, 123]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[120, 107, 100],
-         [114, 102,  94],
-         [117, 105,  99],
-         ...,
-         [132, 125, 119],
-         [132, 126, 119],
-         [136, 130, 124]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[119, 107, 100],
-         [120, 107, 100],
-         [119, 107,  99],
-         ...,
-         [131, 125, 119],
-         [137, 131, 124],
-         [135, 129, 121]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        ...,
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[121, 107, 102],
-         [120, 104, 102],
-         [119, 103, 101],
-         ...,
-         [121, 100, 106],
-         [124, 104, 109],
-         [125, 106, 109]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[120, 105, 102],
-         [120, 105, 102],
-         [118, 101,  99],
-         ...,
-         [126, 103, 111],
-         [124, 105, 109],
-         [128, 108, 110]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[116, 101, 100],
-         [120, 107, 101],
-         [120, 105, 101],
-         ...,
-         [123, 106, 110],
-         [120, 102, 106],
-         [121, 104, 106]]],
-```
-</div>
-    
-    
-<div class="k-default-codeblock">
-```
-       [[[166, 143, 116],
-         [169, 143, 114],
-         [168, 143, 117],
-         ...,
-         [251, 251, 251],
-         [248, 250, 253],
-         [253, 252, 248]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[175, 145, 118],
-         [170, 143, 117],
-         [170, 144, 117],
-         ...,
-         [250, 252, 252],
-         [252, 253, 252],
-         [253, 252, 255]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[177, 149, 122],
-         [176, 148, 123],
-         [174, 148, 121],
-         ...,
-         [250, 251, 252],
-         [252, 252, 253],
-         [253, 250, 253]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        ...,
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[ 47,  36,  29],
-         [ 54,  42,  39],
-         [ 47,  39,  33],
-         ...,
-         [104,  78,  52],
-         [103,  75,  52],
-         [108,  79,  54]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[ 57,  46,  38],
-         [ 59,  43,  43],
-         [ 64,  52,  49],
-         ...,
-         [107,  78,  53],
-         [105,  78,  52],
-         [108,  78,  51]],
-```
-</div>
-    
-<div class="k-default-codeblock">
-```
-        [[ 61,  50,  43],
-         [ 63,  51,  45],
-         [ 56,  41,  37],
-         ...,
-         [105,  79,  53],
-         [103,  79,  52],
-         [105,  78,  53]]]], dtype=uint8)
-
-```
-</div>
 Exactly how fast is it?
 Lets find out!
 
@@ -612,23 +343,18 @@ benchmark_result.append(["XLA + Mixed Precision", end - start])
 print(f"XLA + mixed precision took {end - start} seconds")
 ```
 
-<div class="k-default-codeblock">
 ```
 25/25 [==============================] - 4s 156ms/step
-
 ```
-</div>
+
     
 ![png](/out/out_28_1.png)
     
 
-
-<div class="k-default-codeblock">
 ```
 XLA + mixed precision took 4.555036544799805 seconds
-
 ```
-</div>
+
 Lets check out the results:
 
 
@@ -639,16 +365,13 @@ for result in benchmark_result:
     print("{:<10} {:<10}".format(name, runtime))
 ```
 
-<div class="k-default-codeblock">
 ```
-Model      Runtime   
-Standard   8.530142068862915
-Mixed Precision 6.396734237670898
-XLA        6.652431011199951
+Model                 Runtime   
+Standard              8.530142068862915
+Mixed Precision       6.396734237670898
+XLA                   6.652431011199951
 XLA + Mixed Precision 4.555036544799805
-
 ```
-</div>
 It only took our fully optimized model four seconds to generate three novel images from
 a text prompt.
 
