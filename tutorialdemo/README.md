@@ -70,7 +70,7 @@ visualization.plot_gallery(
 ```
 
     
-![png](/out/out_6_1.png)
+![png](out/out_6_1.png)
     
 
 
@@ -101,7 +101,7 @@ visualize_prompt(
 ```
 
     
-![png](/out/out_8_1.png)
+![png](out/out_8_1.png)
     
 
 
@@ -161,7 +161,7 @@ print(f"Standard model took {end - start} seconds")
 ```
 
 
-![png](/out/out_12_1.png)
+![png](out/out_12_1.png)
 
     
 ```
@@ -233,7 +233,7 @@ print(f"Mixed precision model took {end - start} seconds")
 ```
 
     
-![png](/out/out_18_1.png)
+![png](out/out_18_1.png)
     
 
 
@@ -270,7 +270,7 @@ visualize_prompt(
 ```
 
     
-![png](/out/out_20_1.png)
+![png](out/out_20_1.png)
     
 
 
@@ -292,7 +292,7 @@ print(f"With XLA took {end - start} seconds")
 25/25 [==============================] - 6s 245ms/step
 ```
     
-![png](/out/out_22_1.png)
+![png](out/out_22_1.png)
     
 
 
@@ -348,7 +348,7 @@ print(f"XLA + mixed precision took {end - start} seconds")
 ```
 
     
-![png](/out/out_28_1.png)
+![png](out/out_28_1.png)
     
 
 ```
