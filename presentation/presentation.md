@@ -1,6 +1,6 @@
 # Generative Image Models
 
-Two stories:
+Two stories: (2 minutes)
 
 (back story & introduction)
 
@@ -16,7 +16,6 @@ Sandy in Malibu:
 (back story & introduction)
 
 ## Introduction
-
 
 ### Slide (1 min)
 
