@@ -1,3 +1,15 @@
+---
+title:
+- Have you ever seen an astronaut riding a horse?
+author:
+- Luke Wood
+theme:
+- Copenhagen
+date:
+- October 1, 2022
+
+---
+
 # Generative Image Models
 
 Two stories: (2 minutes)
@@ -9,7 +21,8 @@ Two stories: (2 minutes)
 - story of recruiting Ian to KerasCV
 - funny story of the little GitHub cats
 
-Today, I'm going to teach you how to do all of this and more, all while understanding what is actually going on in your code
+Today, I'm going to teach you how to do all of this and more, 
+all while understanding what is actually going on in your code
 
 Sandy in Malibu:
 
