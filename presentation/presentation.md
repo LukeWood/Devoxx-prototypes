@@ -1,27 +1,40 @@
----
-title:
-- Have you ever seen an astronaut riding a horse?
-author:
-- Luke Wood
-theme:
-- Copenhagen
-date:
-- October 1, 2022
+# Have you ever seen an astronaut riding a horse?
 
----
+![](media/astronaut-riding-horse.png)
 
-# Generative Image Models
+Well now you have!
 
-Two stories: (2 minutes)
+# Image Generation Models
 
-(back story & introduction)
+![](https://github.com/LukeWood/grow-some-flowers/blob/master/media/same-noise-initial.gif?raw=true)
+
+Theory and Applications
+
+# Introduction
+
+![](https://lukewood.xyz/_next/image?url=%2Fstatic%2Fimages%2Fauthors%2Favatar.jpg&w=384&q=75)
+
+![Luke Wood](https://lukewood.xyz)
+
+## About Me
+
+- From San Diego
+- Work on the [Keras team](https://keras.io)
+- Have spent the last year~ on [KerasCV](github.com/keras-team/keras-cv)
+- Worked with generative models off and on since 2016
+
+
+##
+
+![](media/larson.png)
+
 
 - story of my GitHub avatar + Dr. Larson + Ian
 - despite working full time at Google for awhile I've kept it as a tribute to the little group
 - story of recruiting Ian to KerasCV
 - funny story of the little GitHub cats
 
-Today, I'm going to teach you how to do all of this and more, 
+Today, I'm going to teach you how to do all of this and more,
 all while understanding what is actually going on in your code
 
 Sandy in Malibu:
